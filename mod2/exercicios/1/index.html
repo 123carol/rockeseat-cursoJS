@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Primeiro exercício</title>
 </head>
+
 <body>
-    <div id = "O quadrado vermelho">
-            <button> id ="novo">Clique para um novo quadrado</button> 
+    <div id="O quadrado vermelho">
+        <button> id ="novo">Clique para um novo quadrado</button>
     </div>
     <script>
-    var buttonElement = document.getElementById("novo");
-    var quadrado_vermelhoElement = document.getElementById("Quadrado");
-    buttonElement.onclick = function () {
-    var quadrado = document.createElement("div");
-    quadrado.style.width = "100px";
-    quadrado.style.height = "100px";
-    quadrado.style.backgroundColor = "#F00";
-    quadrado_vermelhoElement.appendChild(quadrado);
-    }
+        var buttonElement = document.getElementById("novo");
+        var quadrado_vermelhoElement = document.getElementById("Quadrado");
+        buttonElement.onclick = function () {
+            var quadrado = document.createElement("div");
+            quadrado.style.width = "100px";
+            quadrado.style.height = "100px";
+            quadrado.style.backgroundColor = "#F00";
+            quadrado_vermelhoElement.appendChild(quadrado);
+        }
 
     </script>
 
 </body>
+
 </html>
