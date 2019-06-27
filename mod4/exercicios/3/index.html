@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Terceiro exercício</title>
+</head>
+
+<body>
+    <input type="text" name="user">
+    <button onclick="lista_Repositories()">Adicionar!</button>
+
+    <ul></ul>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var lista_Element = document.querySelector("ul");
+        var input_Element = document.querySelector("input");
+        function renderRepositories(repositories) {
+            lista_Element.innerHTML = "";
+            for (repo of repositories) {
+                const texto_Element = document.createTextNode(repo.name);
+                const li_Element = document.createElement("li");
+                li_Element.appendChild(texto_Element);
+                lista_Element.appendChild(liElement);
+            }
+        }
+        function renderLoading(loading) {
+            lista_Element.innerHTML = "";
+            var texto_Element = document.createTextNode("Carregando...");
+            var loading_Element = document.createElement("li");
+            loading_Element.appendChild(texto_Element);
+            lista_Element.appendChild(loading_Element);
+        }
+        function renderError(loading) {
+            lista_Element.innerHTML = "";
+            var textElement = document.createTextNode("Erro");
+            var erro_Element = document.createElement("li");
+            error_Element.style.color = "#F00";
+            error_Element.appendChild(texto_Element);
+            lista_Element.appendChild(erro_Element);
+        }
+        function listRepositories() {
+            var user = inputElement.value;
+            if (!user) return;
+            render_loading();
+            axios.get("https://api.github.com/users/" + user + "/repos")
+                .then(function (response) {
+                    renderRepositories(response.data);
+                })
+                .catch(function () {
+                    renderError();
+                });
+        }
+    </script>
+</body>
+
+</html>
