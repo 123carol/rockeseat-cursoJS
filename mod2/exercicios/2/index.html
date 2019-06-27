@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Segundo exercício</title>
+</head>
+
+<body>
+    <div id="Quadrado Vermelho">
+        <button id="novo">Clique</button>
+    </div>
+    <script>
+        var bottonElement = document.getElementById("novo");
+        var quadradoVermElement = document.getElementById("Quadrado Vermelho");
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        bottonElement.onclick = function () {
+            var quadrado = document.createElement("div");
+            quadrado.style.width = "100px";
+            quadrado.style.height = "100px";
+            quadrado.style.backgroundColor = "#F00";
+            quadradoVermElement.appendChild(quadrado);
+            quadrado.onmouseover = function () {
+                quadrado.style.backgroundColor = getRandomColor();
+            }
+            quadradoVermElement.appendChild(quadrado);
+        }
+    </script>
+</body>
+
+</html>
